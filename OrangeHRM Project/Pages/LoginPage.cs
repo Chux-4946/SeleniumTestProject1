@@ -18,21 +18,15 @@ namespace OrangeHRM_Project.Pages
         }
 
         //Locators
-        //[FindsBy(How = How.CssSelector, Using = "input[placeholder = 'Username']")]
-        //private IWebElement _txtUserName;
+        
         [FindsBy(How = How.Name, Using = "password")]
         private IWebElement _txtPassword;
-
-        //[FindsBy(How = How.CssSelector, Using = "input[placeholder='Password']")]
-        //private IWebElement _txtPassword;
         [FindsBy(How = How.Name, Using = "username")]
         private IWebElement _txtUserName;
-
         [FindsBy(How = How.CssSelector, Using = "button[type='submit']")]
         private IWebElement _btnLogin;
 
         //Actions
-
         public void Login(string username, string password)
         {
             _txtUserName.Click();

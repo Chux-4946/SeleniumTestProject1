@@ -1,31 +1,19 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.BiDi;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace OrangeHRM_Project.Leave
 {
-   public class LeavePage
+    public class LeavePage
     {
         private readonly IWebDriver _driver;
 
         public LeavePage(IWebDriver driver)
         {
-          this._driver = driver;
+            this._driver = driver;
         }
 
         // Locators
-        //private By PageHeader = By.XPath("//h5[text()='Leave List']");
-        //private By SearchButton = By.CssSelector("button[type='submit']");
-        //private By ResetButton = By.CssSelector("button.oxd-button--ghost");
-        //private By EmployeeNameInput = By.XPath("//label[text()='Employee Name']/../..//input");
-        //private By TableBody = By.ClassName("oxd-table-body");
 
         [FindsBy(How = How.CssSelector, Using = "button[type='submit']")]
         private IWebElement _searchButton;
@@ -41,7 +29,6 @@ namespace OrangeHRM_Project.Leave
         private IWebElement _datePickerInput;
         [FindsBy(How = How.ClassName, Using = ".oxd-calendar-dates-grid")]
         private IWebElement _calendarGrid;
-
         [FindsBy(How = How.XPath, Using = "//label[text()='Leave Status']/../..//div[@class='oxd-select-wrapper']")]
         private IWebElement _leaveStatus;
         [FindsBy(How = How.XPath, Using = "//label[text()='Leave Type']/../..//div[@class='oxd-select-wrapper']")]
@@ -49,18 +36,13 @@ namespace OrangeHRM_Project.Leave
         [FindsBy(How = How.XPath, Using = "//div[@role='listbox']//span[text()='Taken']")]
         private IWebElement _leaveTakenOption;
 
-
-
-
-
-
         // Actions
         //public bool IsHeaderVisible() => _driver.FindElement(_pageHeader).Displayed;
 
         public void ClickSearchButton()
         {
             _searchButton.Click();
-      
+
         }
 
         public void ClickResetButton()
@@ -69,14 +51,8 @@ namespace OrangeHRM_Project.Leave
         }
 
         public bool IsLeavePageHeaderDisplayed() => _pageHeader.Displayed;
-        
-       
 
-      public bool IsSearchResultTableDisplayed() => _tableBody.Displayed;
-
-        
-
-
+        public bool IsSearchResultTableDisplayed() => _tableBody.Displayed;
 
         public void EnterEmployeeName(string name)
         {
@@ -95,9 +71,9 @@ namespace OrangeHRM_Project.Leave
 
         public bool IsTableBodyVisible() => _tableBody.Displayed;
 
-        public void SelectDropdownOption(string labelName, string optionText )
+        public void SelectDropdownOption(string labelName, string optionText)
         {
-            
+
             // 1. Locate the dropdown based on the label name (e.g., 'Leave Status')
             var dropdown = _driver.FindElement(By.XPath($"//label[text()='{labelName}']/../..//div[@class='oxd-select-text-input']"));
             dropdown.Click();
