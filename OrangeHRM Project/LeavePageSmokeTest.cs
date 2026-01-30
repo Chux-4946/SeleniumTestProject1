@@ -38,18 +38,19 @@ namespace OrangeHRM_Project
 
             // Ensure login is successful by checking for the Dashboard header
             Assert.That(driver.Url.Contains("dashboard"));
-
-            //Navigate To LeavePage
+            
+            // Navigate To Leave Menu & Click
+            By LeaveMenu = By.CssSelector("a[href*='viewLeaveModule']");
+            driver.FindElement(LeaveMenu).Click();
+            
+            //Initialise LeavePage
             leavePage = new LeavePage(driver);
         }
 
         [Test]
         public void VerifyleavePageLoads()
         {
-            //Arrange & Act - Navigate To Leave Menu & Click
-            By LeaveMenu = By.CssSelector("a[href*='viewLeaveModule']");
-            driver.FindElement(LeaveMenu).Click();
-
+           
             //Assert
             leavePage.IsLeavePageHeaderDisplayed()
                .Should()
