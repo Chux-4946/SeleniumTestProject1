@@ -51,14 +51,11 @@ namespace OrangeHRM_Project.Leave
         }
 
         public bool IsLeavePageHeaderDisplayed() => _pageHeader.Displayed;
-
         public bool IsSearchResultTableDisplayed() => _tableBody.Displayed;
-
         public void EnterEmployeeName(string name)
         {
             _employeeNameInputBox.SendKeys(name);
         }
-
         public void ClickDatePickerInput()
         {
             _datePickerInput.Click();
@@ -66,28 +63,22 @@ namespace OrangeHRM_Project.Leave
 
         public bool IsDatePickerInputEnabled() => _datePickerInput.Enabled;
         public bool IsDatePickerInputDisplayed() => _datePickerInput.Displayed;
-
         public bool IsCalendarGridVisible() => _calendarGrid.Displayed;
-
         public bool IsTableBodyVisible() => _tableBody.Displayed;
-
         public void SelectDropdownOption(string labelName, string optionText)
         {
 
             // 1. Locate the dropdown based on the label name (e.g., 'Leave Status')
             var dropdown = _driver.FindElement(By.XPath($"//label[text()='{labelName}']/../..//div[@class='oxd-select-text-input']"));
             dropdown.Click();
-
             // 2. Wait for the options to appear and click the desired text
             var option = _driver.FindElement(By.XPath($"//div[@role='listbox']//span[text()='{optionText}']"));
             option.Click();
         }
 
         public bool IsLeaveListTableDataInputVisible() => _tableBody.Displayed;
-
         public bool IsSearchButtonVisibleAndEnabled() => _searchButton.Enabled;
         public bool IsSearchReSetButtonVisibleAndEnabled() => _resetButton.Enabled;
-
         public bool IsLeaveDataTableVisible() => _tableBody.Displayed;
 
     }
